@@ -1,6 +1,8 @@
 .profile__edit-button {
 width: 24px;
 height: 24px;
+background-image: url(../../../images/EditButton.png);
+border: 1px solid #fff;
 grid-area: edit-button;
 align-self: center;
 }
@@ -11,3 +13,4 @@ align-self: center;
   height: 18px;
 }
 }
+

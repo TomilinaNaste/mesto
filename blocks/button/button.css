@@ -1,0 +1,12 @@
+.button {
+  box-sizing: border-box;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.button:hover {
+  cursor: pointer;
+}

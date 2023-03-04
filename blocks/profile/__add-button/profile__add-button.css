@@ -3,6 +3,8 @@
   height: 50px;
   object-fit: cover;
   align-self: center;
+  background-image: url(../../../images/AddButton.png);
+  border: 2px solid #fff;
 }
 
 @media screen and (max-width: 767px) {
