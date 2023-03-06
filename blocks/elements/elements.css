@@ -1,24 +1,26 @@
-.footer {
+.elements {
   max-width: 880px;
-  padding: 67px 0 60px 0;
-  margin: auto;
+  padding-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+  gap: 17px;
 }
 
 @media screen and (max-width:1023px) {
-  .footer {
+  .elements {
     max-width: calc(100% - 23.82vw);
   }
 }
 
 @media screen and (max-width: 980px) {
-  .footer {
+  .elements {
     max-width: calc(100% - 11.91vw);
   }
 }
 
 @media screen and (max-width: 767px) {
-  .footer {
-    padding: 48px 0 36px 0;
-    max-width: calc(100% - 2 * 19px);
+  .elements {
+  padding-top: 42px;
+  max-width: calc(100% - 2 * 19px);
   }
 }

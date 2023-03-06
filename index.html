@@ -24,25 +24,93 @@
           <h2 class="profile__subtitle">Исследователь океана</h2>
 
           <!-- здесь будет кнопка редактировать с поп-апом-->
-         <button class="button profile__edit-button"></button>
+          <button class="button profile__edit-button"></button>
 
         </div>
       </div>
       <button class="button profile__add-button"></button>
     </section>
 
-   <!-- <section class="elements" aria-label="Карточки с фотографиями">
-      <ul class="element-group">
-        <li class="element">
-          <div class="rectangle">
-            <p class="image-name">Название</p>
-            <Button class="button elements__button"></Button>
-          </div>
-        </li>
-      </ul>
-    </section>-->
+    <section class="elements page__section" aria-label="Карточки с фотографиями">
+      <article class="element">
+        <img src="./images/Svetlogorsk.jpg" alt="Побережье Светлогорска" class="element__image">
+        <div class="element__text">
+          <p class="element__image-name">Светлогорск</p>
+          <Button class="button element__button element__button_active "></Button>
+        </div>
+      </article>
+
+      <article class="element">
+        <img src="./images/Kipr.jpg" alt="Кипр" class="element__image">
+        <div class="element__text">
+          <p class="element__image-name">Кипр</p>
+          <Button class="button element__button"></Button>
+        </div>
+      </article>
+
+      <article class="element">
+        <img src="./images/Kairo.jpg" alt="Верблюд" class="element__image">
+        <div class="element__text">
+          <p class="element__image-name">Каир</p>
+          <Button class="button element__button"></Button>
+        </div>
+      </article>
+
+      <article class="element">
+        <img src="./images/Antalya.jpg" alt="Улица Антальи" class="element__image">
+        <div class="element__text">
+          <p class="element__image-name">Анталья</p>
+          <Button class="button element__button"></Button>
+        </div>
+      </article>
+
+      <article class="element">
+        <img src="./images/Istanbul.jpg" alt="Фото с парома на проливе Босфор в Стамбуле" class="element__image">
+        <div class="element__text">
+          <p class="element__image-name">Босфор</p>
+          <Button class="button element__button"></Button>
+        </div>
+      </article>
+
+      <article class="element">
+        <img src="./images/AdalarNizam.jpg" alt="Принцевы острова" class="element__image">
+        <div class="element__text">
+          <p class="element__image-name">Принцевы острова</p>
+          <Button class="button element__button"></Button>
+        </div>
+      </article>
+
+    </section>
+
+    <section class="popup">
+      <button class="button popup__close-button"></button>
+      <form class="form">
+        <div class="form__container">
+        <h2 class="form__title">Редактировать&nbsp;профиль</h2>
+          <label class="form__label">
+            <input type="text" class="form__item">
+          </label>
+          <label class="form__label">
+            <input type="text" class="form__item">
+          </label>
+        <button type="submit" class="form__save-button">Сохранить</button>
+      </div>
+
+      </form>
+
+
+    </section>
+
+
 
   </main>
+
+
+
+
+  <footer class="footer">
+    <p class="footer__copyright">© 2023 Mesto</p>
+  </footer>
 </body>
 
 </html>
