@@ -1,6 +1,6 @@
 .profile {
   max-width: 880px;
-  padding-top: 40px;
+  padding: 40px 0 47px 0;
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -20,7 +20,7 @@
 
 @media screen and (max-width: 767px) {
   .profile {
-  padding-top: 42px;
+  padding: 38px 0 36px 0;
   max-width: calc(100% - 2 * 19px);
   flex-direction: column;
   row-gap: 36px;

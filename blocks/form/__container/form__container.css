@@ -2,10 +2,17 @@
   padding: 34px 36px 37px 36px;
   display: flex;
   flex-direction: column;
+  font-family: inherit;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 430px;
+  position: relative;
 }
 
 @media screen and (max-width: 619px) {
   .form__container {
     padding: 25px 22px;
+    width: 282px;
   }
 }

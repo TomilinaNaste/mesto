@@ -1,6 +1,5 @@
 .elements {
   max-width: 880px;
-  padding-top: 8px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
   gap: 17px;
@@ -20,7 +19,6 @@
 
 @media screen and (max-width: 767px) {
   .elements {
-  padding-top: 42px;
   max-width: calc(100% - 2 * 19px);
   }
 }
