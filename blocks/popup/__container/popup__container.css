@@ -1,4 +1,4 @@
-.form__container {
+.popup__container {
   padding: 34px 36px 37px 36px;
   display: flex;
   flex-direction: column;
@@ -8,10 +8,11 @@
   border-radius: 10px;
   width: 430px;
   position: relative;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
 }
 
 @media screen and (max-width: 619px) {
-  .form__container {
+  .popup__container {
     padding: 25px 22px;
     width: 282px;
   }
