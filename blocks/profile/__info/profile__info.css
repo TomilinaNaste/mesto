@@ -4,13 +4,13 @@
   align-self: center;
   grid-gap: 16px 18px;
   grid-template-areas:
-  "title edit-button"
-  "subtitle .";
+    "title edit-button"
+    "subtitle .";
 }
 
 @media screen and (max-width: 767px) {
-.profile__info {
-  grid-gap: 14px 10px;
-  padding-left: 30px;
-}
+  .profile__info {
+    grid-gap: 14px 10px;
+    padding-left: 30px;
+  }
 }
