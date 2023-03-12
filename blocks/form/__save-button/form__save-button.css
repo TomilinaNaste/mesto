@@ -22,7 +22,7 @@
   .form__save-button {
     font-size: 14px;
     width: 238px;
-    height: 46px;
-    margin-top: 15px;
+    min-height: 46px;
+    margin-top: 10px;
   }
 }
