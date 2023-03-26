@@ -8,5 +8,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  display: none;
+  visibility:hidden;
+  display: flex;
+  opacity: 0;
+  transition: all 0.5s linear;
 }
+
