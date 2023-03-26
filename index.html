@@ -28,59 +28,13 @@
     </section>
 
     <section class="elements page__section" aria-label="Карточки с фотографиями">
-      <article class="element">
-        <img src="./images/Svetlogorsk.jpg" alt="Побережье Светлогорска" class="element__image">
-        <div class="element__text">
-          <h2 class="element__image-name">Светлогорск</h2>
-          <button type="button" class="button element__button element__button_active "></button>
-        </div>
-      </article>
-
-      <article class="element">
-        <img src="./images/Kipr.jpg" alt="Кипр" class="element__image">
-        <div class="element__text">
-          <h2 class="element__image-name">Кипр</h2>
-          <button type="button" class="button element__button"></button>
-        </div>
-      </article>
-
-      <article class="element">
-        <img src="./images/Kairo.jpg" alt="Верблюд" class="element__image">
-        <div class="element__text">
-          <h2 class="element__image-name">Каир</h2>
-          <button type="button" class="button element__button"></button>
-        </div>
-      </article>
-
-      <article class="element">
-        <img src="./images/Antalya.jpg" alt="Улица Антальи" class="element__image">
-        <div class="element__text">
-          <h2 class="element__image-name">Анталья</h2>
-          <button type="button" class="button element__button"></button>
-        </div>
-      </article>
-
-      <article class="element">
-        <img src="./images/Istanbul.jpg" alt="Фото с парома на проливе Босфор в Стамбуле" class="element__image">
-        <div class="element__text">
-          <h2 class="element__image-name">Босфор</h2>
-          <button type="button" class="button element__button"></button>
-        </div>
-      </article>
-
-      <article class="element">
-        <img src="./images/AdalarNizam.jpg" alt="Принцевы острова" class="element__image">
-        <div class="element__text">
-          <h2 class="element__image-name">Принцевы острова</h2>
-          <button type="button" class="button element__button"></button>
-        </div>
-      </article>
+      <ul class="elements__group"></ul>
     </section>
 
-    <section class="popup">
+    <section class="popup popup-profileEdit">
       <div class="popup__container">
         <form class="form" name="form1">
-          <button type="button" class="button popup__close-button"></button>
+          <button type="button" class="button popup__close-button popup__close-button-profile"></button>
           <h3 class="form__title">Редактировать&nbsp;профиль</h3>
           <label class="form__label">
             <input name="name" type="text" class="form__item form__item_type_name">
@@ -92,6 +46,47 @@
         </form>
       </div>
     </section>
+
+    <section class="popup popup-addElement">
+      <div class="popup__container">
+        <form class="form form2" name="form2">
+          <button type="button" class="button popup__close-button popup__close-button-card"></button>
+          <h3 class="form__title">Новое место</h3>
+          <label class="form__label">
+            <input name="named" type="text" placeholder="Название" class="form__item form__item_type_named">
+          </label>
+          <label class="form__label">
+            <input name="url" type="text" placeholder="Ссылка на картинку" class="form__item form__item_type_url">
+          </label>
+          <button type="submit" class="button form__save-button">Создать</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="popup popup-image">
+      <div class="popup-image__container">
+        <button type="button" class="button popup__close-button popup__close-button-image"></button>
+        <figure class="popup-image__figure">
+          <img src="#" alt="#" class="popup__image">
+          <figcaption class="popup__description"></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <template id="element-template">
+      <li class="elements__item">
+        <article class="element">
+          <button type="button" class="button element__button-delete"></button>
+          <img src="#" alt="#" class="element__image">
+          <div class="element__text">
+            <h2 class="element__image-name"></h2>
+            <button type="button" class="button element__button"></button>
+          </div>
+        </article>
+      </li>
+    </template>
+
+
   </main>
   <footer class="footer">
     <p class="footer__copyright">© 2023 Mesto</p>
