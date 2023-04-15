@@ -22,6 +22,9 @@ const formAddCard = document.querySelector('.form2');
 const namedInput = formAddCard.querySelector('.form__item_type_named');
 const urlInput = formAddCard.querySelector('.form__item_type_url');
 
+const inputListForm = formElement.querySelectorAll('.form__item');
+const submitButtonForm = formElement.querySelector('.form__save-button');
+const submitButtonForm2 = formAddCard.querySelector('.form__save-button');
 //массив с карточками
 const initialCards = [
   {
@@ -58,8 +61,10 @@ const openPopup = function (popup) {
 popupElementOpen.addEventListener('click', () => {
   nameInput.value = addNameInputInProfileTitle.textContent;
   jobInput.value = addNameInputInProfileSubTitle.textContent;
+  toggleButtonState(inputListForm, submitButtonForm, validationConfig.inactiveButtonClass);
   openPopup(popupEditProfile); // вызов функции
 });
+
 //событие сабмит
 function handleFormSubmit(evt) {
   evt.preventDefault();
@@ -68,13 +73,36 @@ function handleFormSubmit(evt) {
   closePopup(popupEditProfile);
 }
 formElement.addEventListener('submit', handleFormSubmit);
-//открытие поп-апа добавления карточек
-popupAddElementOpen.addEventListener('click', () => openPopup(popupAddElement));
 
+//открытие поп-апа добавления карточек
+popupAddElementOpen.addEventListener('click', () => {
+  formAddCard.reset();
+  toggleButtonState(inputListForm, submitButtonForm2, validationConfig.inactiveButtonClass);
+  openPopup(popupAddElement);
+});
 // закрытие popup
 const closePopup = function (popup) {
   popup.classList.remove('popup_open');
+  document.removeEventListener('keydown', closePopupEsc);
 }
+//закрытие поп-апа по esc
+function closePopupEsc(evt) {
+  if (evt.key === 'Escape') {
+    const popupOpen = document.querySelector('.popup_open');
+    closePopup(popupOpen);
+  }
+}
+//закрытие по оверлей
+function closePopupOnClickOverlay(e) {
+  if (e.target === e.currentTarget) {
+    closePopup(e.target)
+  }
+};
+popupEditProfile.addEventListener("click", closePopupOnClickOverlay);
+popupAddElement.addEventListener("click", closePopupOnClickOverlay);
+popupImageElement.addEventListener("click", closePopupOnClickOverlay);
+
+
 // находим все крестики проекта по универсальному селектору
 closeButtons.forEach((button) => {
   // находим 1 раз ближайший к крестику попап
@@ -137,6 +165,4 @@ function handleForm2Submit(evt) {
   closePopup(popupAddElement);
 }
 formAddCard.addEventListener('submit', handleForm2Submit);
-
-
 

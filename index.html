@@ -30,18 +30,25 @@
     <section class="elements page__section" aria-label="Карточки с фотографиями">
       <ul class="elements__group"></ul>
     </section>
+<!-- начинаются формы -->
 
     <section class="popup popup-profileEdit">
       <div class="popup__container">
         <form class="form" name="form1">
           <button type="button" class="button popup__close-button popup__close-button-profile"></button>
           <h3 class="form__title">Редактировать&nbsp;профиль</h3>
+          <div class="popup__input-container">
           <label class="form__label">
-            <input name="name" type="text" class="form__item form__item_type_name">
+            <input name="name" type="text" class="form__item form__item_type_name" id="name-input"
+            required minlength="2" maxlength="40">
+            <span class="form__span  form__span-name"></span>
           </label>
           <label class="form__label">
-            <input name="job" type="text" class="form__item form__item_type_job">
+            <input name="job" type="text" class="form__item form__item_type_job" id="job-input"
+            required minlength="2" maxlength="200">
+            <span class="form__span  form__span-job"></span>
           </label>
+        </div>
           <button type="submit" class="button form__save-button">Сохранить</button>
         </form>
       </div>
@@ -52,17 +59,24 @@
         <form class="form form2" name="form2">
           <button type="button" class="button popup__close-button popup__close-button-card"></button>
           <h3 class="form__title">Новое место</h3>
+          <div class="popup__input-container">
           <label class="form__label">
-            <input name="named" type="text" placeholder="Название" class="form__item form__item_type_named">
+            <input name="named" type="text" placeholder="Название" class="form__item form__item_type_named" id="named-input"
+            required minlength="2" maxlength="30">
+            <span class="form__span  form__span-named"></span>
           </label>
           <label class="form__label">
-            <input name="url" type="text" placeholder="Ссылка на картинку" class="form__item form__item_type_url">
+            <input name="url" type="url" placeholder="Ссылка на картинку" class="form__item form__item_type_url" id="url-input"
+            required>
+            <span class="form__span  form__span-url"></span>
           </label>
+        </div>
           <button type="submit" class="button form__save-button">Создать</button>
         </form>
       </div>
     </section>
 
+<!-- конец второй формы -->
     <section class="popup popup-image">
       <div class="popup-image__container">
         <button type="button" class="button popup__close-button popup__close-button-image"></button>
@@ -85,12 +99,13 @@
         </article>
       </li>
     </template>
-
+<p>
 
   </main>
   <footer class="footer">
     <p class="footer__copyright">© 2023 Mesto</p>
   </footer>
+  <script src="./scripts/validate.js"></script>
   <script src="./scripts/script.js"></script>
 </body>
 

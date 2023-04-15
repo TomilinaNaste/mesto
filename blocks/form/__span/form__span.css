@@ -1,0 +1,9 @@
+.form__span {
+  color: #ff0000;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 0.8;
+  font-weight: 400;
+  visibility: hidden;
+
+}

@@ -1,0 +1,7 @@
+.form__save-button_inactive {
+  background-color: white;
+  color: black;
+  opacity: 20%;
+  border: 2px solid black;
+  cursor: none;
+}
