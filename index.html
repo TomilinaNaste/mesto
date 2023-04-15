@@ -33,21 +33,19 @@
 
     <section class="popup popup-profileEdit">
       <div class="popup__container">
-        <form class="form" name="form1">
+        <form class="form" name="form_edit">
           <button type="button" class="button popup__close-button popup__close-button-profile"></button>
           <h3 class="form__title">Редактировать&nbsp;профиль</h3>
-          <div class="popup__input-container">
           <label class="form__label">
             <input name="name" type="text" class="form__item form__item_type_name" id="name-input"
-            required minlength="2" maxlength="40">
+            required minlength="2" maxlength="40" placeholder="Имя">
             <span class="form__span  form__span-name"></span>
           </label>
           <label class="form__label">
             <input name="job" type="text" class="form__item form__item_type_job" id="job-input"
-            required minlength="2" maxlength="200">
+            required minlength="2" maxlength="200" placeholder="О себе">
             <span class="form__span  form__span-job"></span>
           </label>
-        </div>
           <button type="submit" class="button form__save-button">Сохранить</button>
         </form>
       </div>
@@ -55,10 +53,9 @@
 
     <section class="popup popup-addElement">
       <div class="popup__container">
-        <form class="form form2" name="form2">
+        <form class="form form_add" name="form_add">
           <button type="button" class="button popup__close-button popup__close-button-card"></button>
           <h3 class="form__title">Новое место</h3>
-          <div class="popup__input-container">
           <label class="form__label">
             <input name="named" type="text" placeholder="Название" class="form__item form__item_type_named" id="named-input"
             required minlength="2" maxlength="30">
@@ -69,7 +66,6 @@
             required>
             <span class="form__span  form__span-url"></span>
           </label>
-        </div>
           <button type="submit" class="button form__save-button">Создать</button>
         </form>
       </div>
@@ -103,8 +99,7 @@
   <footer class="footer">
     <p class="footer__copyright">© 2023 Mesto</p>
   </footer>
-  <script src="./scripts/validate.js"></script>
-  <script src="./scripts/script.js"></script>
+  <script defer src="./scripts/validate.js"></script>
+  <script defer src="./scripts/script.js"></script>
 </body>
-
 </html>

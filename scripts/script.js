@@ -1,14 +1,14 @@
-const popupElement = document.querySelector('.popup');
+
 const popupEditProfile = document.querySelector('.popup-profileEdit');
 const popupAddElement = document.querySelector('.popup-addElement');
 const popupImageElement = document.querySelector('.popup-image');//попап карточек
-const popupElementOpen = document.querySelector('.profile__edit-button');
+const popupElementOpenPopupProfile = document.querySelector('.profile__edit-button');
 //кнопка закрытия попапов
 const closeButtons = document.querySelectorAll('.popup__close-button');
 
-const formElement = document.querySelector('.form');
-const nameInput = formElement.querySelector('.form__item');
-const jobInput = formElement.querySelector('.form__item_type_job');
+const formEditProfile = popupEditProfile.querySelector('.form');
+const nameInput = formEditProfile.querySelector('.form__item');
+const jobInput = formEditProfile.querySelector('.form__item_type_job');
 const addNameInputInProfileTitle = document.querySelector('.profile__title');
 const addNameInputInProfileSubTitle = document.querySelector('.profile__subtitle');
 //для открытия поп-апа имж
@@ -18,13 +18,14 @@ const popupAddElementOpen = document.querySelector('.profile__add-button');
 
 const elementsGroupCard = document.querySelector('.elements__group'); //разметка ul
 //переменные второй формы
-const formAddCard = document.querySelector('.form2');
+const formAddCard = popupAddElement.querySelector('.form_add');
 const namedInput = formAddCard.querySelector('.form__item_type_named');
 const urlInput = formAddCard.querySelector('.form__item_type_url');
 
-const inputListForm = formElement.querySelectorAll('.form__item');
-const submitButtonForm = formElement.querySelector('.form__save-button');
-const submitButtonForm2 = formAddCard.querySelector('.form__save-button');
+const inputListProfileForm = formEditProfile.querySelectorAll('.form__item');
+const inputListCardForm = formAddCard.querySelectorAll('.form__item');
+const submitButtonProfileForm = formEditProfile.querySelector('.form__save-button');
+const submitButtonCardForm = formAddCard.querySelector('.form__save-button');
 //массив с карточками
 const initialCards = [
   {
@@ -56,28 +57,28 @@ const initialCards = [
 // функция открытия любого поп-апа
 const openPopup = function (popup) {
   popup.classList.add('popup_open');
+  document.addEventListener('keydown', closePopupEsc);
 }
 //открытие поп-апа профиля обработчиком событий клик
-popupElementOpen.addEventListener('click', () => {
+popupElementOpenPopupProfile.addEventListener('click', () => {
   nameInput.value = addNameInputInProfileTitle.textContent;
   jobInput.value = addNameInputInProfileSubTitle.textContent;
-  toggleButtonState(inputListForm, submitButtonForm, validationConfig.inactiveButtonClass);
+  toggleButtonState(inputListProfileForm, submitButtonProfileForm, validationConfig.inactiveButtonClass);
   openPopup(popupEditProfile); // вызов функции
 });
-
 //событие сабмит
-function handleFormSubmit(evt) {
+function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   addNameInputInProfileTitle.textContent = nameInput.value;
   addNameInputInProfileSubTitle.textContent = jobInput.value;
   closePopup(popupEditProfile);
 }
-formElement.addEventListener('submit', handleFormSubmit);
+formEditProfile.addEventListener('submit', handleProfileFormSubmit);
 
 //открытие поп-апа добавления карточек
 popupAddElementOpen.addEventListener('click', () => {
   formAddCard.reset();
-  toggleButtonState(inputListForm, submitButtonForm2, validationConfig.inactiveButtonClass);
+  toggleButtonState(inputListCardForm, submitButtonCardForm, validationConfig.inactiveButtonClass);
   openPopup(popupAddElement);
 });
 // закрытие popup
@@ -157,12 +158,12 @@ initialCards.forEach(function (element) {
 });
 
 //добавление новой карточки на страницу
-function handleForm2Submit(evt) {
+function handleFormCardSubmit(evt) {
   evt.preventDefault();
-  const namedUrl = { name: namedInput.value, link: urlInput.value };
-  elementsGroupCard.prepend(createCard(namedUrl));
+  const cardData = { name: namedInput.value, link: urlInput.value };
+  elementsGroupCard.prepend(createCard(cardData));
   event.target.reset(); //обнуление значений формы
   closePopup(popupAddElement);
 }
-formAddCard.addEventListener('submit', handleForm2Submit);
+formAddCard.addEventListener('submit', handleFormCardSubmit);
 

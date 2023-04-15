@@ -61,15 +61,22 @@ function hasInvalidInput(inputList) {
 //меняет кнопку сабмит взависимости от валидации инпута
 function toggleButtonState(inputList, submitButton, inactiveButtonClass) {
   if (hasInvalidInput(inputList)) {
-    submitButton.classList.add(inactiveButtonClass)
-    submitButton.disabled = true
+    disableButton(submitButton, inactiveButtonClass);
   }
   else {
-    submitButton.classList.remove(inactiveButtonClass)
-    submitButton.disabled = false
+    enableButton(submitButton, inactiveButtonClass);
   }
 }
 
+const enableButton = (submitButton, inactiveButtonClass) => {
+  submitButton.classList.remove(inactiveButtonClass)
+  submitButton.disabled = false
+}
+
+const disableButton = (submitButton, inactiveButtonClass) => {
+  submitButton.classList.add(inactiveButtonClass)
+  submitButton.disabled = true
+}
 
 enableValidation(validationConfig);
 
