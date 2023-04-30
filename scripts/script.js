@@ -1,5 +1,5 @@
 import initialCards from "./constants.js";
-
+import Card from "./card.js";
 const popupEditProfile = document.querySelector('.popup-profileEdit');
 const popupAddElement = document.querySelector('.popup-addElement');
 const popupImageElement = document.querySelector('.popup-image');//попап карточек
@@ -91,38 +91,16 @@ closeButtons.forEach((button) => {
 
 
 
-function openImagePopup(data) {
+function openImagePopup(data) { //открытие поп-апа картинки
   popupImage.src = data.link;
   popupImage.alt = data.name;
   document.querySelector('.popup__description').textContent = data.name;
   openPopup(popupImageElement);
 }
 //!----------------------
-const templateSelector = '#element-template';
-class Card {
-  constructor(data, templateSelector, openImagePopup) {
-    this._data = data;
-    this._link = data.link;
-    this._name = data.name;
-    this._templateSelector = templateSelector;
-    this._openImagePopup = openImagePopup;
-  }
-  _getClone() {
-    return document.querySelector(this._templateSelector).content.querySelector('.elements__item').cloneNode(true);
-  }
-  createCard() {
-    this._templateElementItem = this._getClone();
-    this._imageElement = this._templateElementItem.querySelector('.element__image');
-    this._imageCaption = this._templateElementItem.querySelector('.element__image-name');
-    this._imageElement.src = this._link;
-    this._imageElement.alt = this._name;
-    this._imageCaption.textContent = this._name;
-    this._likeButton = this._templateElementItem.querySelector('.element__button');
-    this._removeButton = this._templateElementItem.querySelector('.element__button-delete');
-    return this._templateElementItem;
-  }
 
-}
+const templateSelector = '#element-template';
+
 
 
 
