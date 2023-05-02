@@ -28,7 +28,6 @@ export default class Card {
     this._imageElement.addEventListener('click', this._forOpenImagePopup);
   }
 
-
   createCard() {
     this._templateElementItem = this._getClone();
     this._imageElement = this._templateElementItem.querySelector('.element__image');

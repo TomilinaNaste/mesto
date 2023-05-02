@@ -1,5 +1,7 @@
 import initialCards from "./constants.js";
-import Card from "./card.js";
+import Card from "./Сard.js";
+import FormValidator from "./FormValidator.js";
+
 const popupEditProfile = document.querySelector('.popup-profileEdit');
 const popupAddElement = document.querySelector('.popup-addElement');
 const popupImageElement = document.querySelector('.popup-image');//попап карточек
@@ -23,8 +25,16 @@ const namedInput = formAddCard.querySelector('.form__item_type_named');
 const urlInput = formAddCard.querySelector('.form__item_type_url');
 const templateSelector = '#element-template';
 
-
-
+//объект валидации
+const validationConfig = {
+  formSelector: '.form',
+  inputSelector: '.form__item',
+  submitButtonSelector: '.form__save-button',
+  errorSelector: '.form__span-',
+  inactiveButtonClass: 'form__save-button_inactive',
+  inputErrorClass: 'form__item_type_error',
+  errorClass: 'form__span_visible'
+};
 
 // функция открытия любого поп-апа
 const openPopup = function (popup) {
@@ -116,3 +126,9 @@ function handleFormCardSubmit(evt) {
 }
 formAddCard.addEventListener('submit', handleFormCardSubmit);
 
+
+const formEditProfileValidator = new FormValidator(validationConfig, formEditProfile);
+formEditProfileValidator.enableValidation();
+
+const formAddCardValidator = new FormValidator(validationConfig, formAddCard);
+formAddCardValidator.enableValidation();
