@@ -2,50 +2,50 @@ import initialCards from "./constants.js";
 import Card from "./Сard.js";
 import FormValidator from "./FormValidator.js";
 
-const popupEditProfile = document.querySelector('.popup-profileEdit');
-const popupAddElement = document.querySelector('.popup-addElement');
-const popupImageElement = document.querySelector('.popup-image');//попап карточек
-const popupProfileOpenButton = document.querySelector('.profile__edit-button');
+const popupEditProfile = document.querySelector(".popup-profileEdit");
+const popupAddElement = document.querySelector(".popup-addElement");
+const popupImageElement = document.querySelector(".popup-image"); //попап карточек
+const popupProfileOpenButton = document.querySelector(".profile__edit-button");
 //кнопка закрытия попапов
-const closeButtons = document.querySelectorAll('.popup__close-button');
-
-const formEditProfile = popupEditProfile.querySelector('.form');
-const nameInput = formEditProfile.querySelector('.form__item');
-const jobInput = formEditProfile.querySelector('.form__item_type_job');
-const addNameInputInProfileTitle = document.querySelector('.profile__title');
-const addNameInputInProfileSubTitle = document.querySelector('.profile__subtitle');
+const closeButtons = document.querySelectorAll(".popup__close-button");
+const formEditProfile = popupEditProfile.querySelector(".form");
+const nameInput = formEditProfile.querySelector(".form__item");
+const jobInput = formEditProfile.querySelector(".form__item_type_job");
+const addNameInputInProfileTitle = document.querySelector(".profile__title");
+const addNameInputInProfileSubTitle =
+  document.querySelector(".profile__subtitle");
 //для открытия поп-апа имж
-const popupImage = document.querySelector('.popup__image');//изображение попапа
-const popupAddElementOpen = document.querySelector('.profile__add-button');
+const popupImage = document.querySelector(".popup__image"); //изображение попапа
+const popupDescription = document.querySelector(".popup__description");
+const popupAddElementOpen = document.querySelector(".profile__add-button");
 
-const elementsGroupCard = document.querySelector('.elements__group'); //разметка ul
+const elementsGroupCard = document.querySelector(".elements__group"); //разметка ul
 //переменные второй формы
-const formAddCard = popupAddElement.querySelector('.form_add');
-const namedInput = formAddCard.querySelector('.form__item_type_named');
-const urlInput = formAddCard.querySelector('.form__item_type_url');
-const templateSelector = '#element-template';
+const formAddCard = popupAddElement.querySelector(".form_add");
+const namedInput = formAddCard.querySelector(".form__item_type_named");
+const urlInput = formAddCard.querySelector(".form__item_type_url");
+const templateSelector = "#element-template";
 
 //объект валидации
 const validationConfig = {
-  formSelector: '.form',
-  inputSelector: '.form__item',
-  submitButtonSelector: '.form__save-button',
-  errorSelector: '.form__span-',
-  inactiveButtonClass: 'form__save-button_inactive',
-  inputErrorClass: 'form__item_type_error',
-  errorClass: 'form__span_visible'
+  formSelector: ".form",
+  inputSelector: ".form__item",
+  submitButtonSelector: ".form__save-button",
+  errorSelector: ".form__span-",
+  inactiveButtonClass: "form__save-button_inactive",
+  inputErrorClass: "form__item_type_error",
+  errorClass: "form__span_visible",
 };
 
 // функция открытия любого поп-апа
 const openPopup = function (popup) {
-  popup.classList.add('popup_open');
-  document.addEventListener('keydown', closePopupEsc);
-}
+  popup.classList.add("popup_open");
+  document.addEventListener("keydown", closePopupEsc);
+};
 //открытие поп-апа профиля обработчиком событий клик
-popupProfileOpenButton.addEventListener('click', () => {
+popupProfileOpenButton.addEventListener("click", () => {
   nameInput.value = addNameInputInProfileTitle.textContent;
   jobInput.value = addNameInputInProfileSubTitle.textContent;
-  //toggleButtonState(inputListProfileForm, submitButtonProfileForm, validationConfig.inactiveButtonClass);
   openPopup(popupEditProfile); // вызов функции
 });
 //событие сабмит
@@ -55,56 +55,57 @@ function handleProfileFormSubmit(evt) {
   addNameInputInProfileSubTitle.textContent = jobInput.value;
   closePopup(popupEditProfile);
 }
-formEditProfile.addEventListener('submit', handleProfileFormSubmit);
+formEditProfile.addEventListener("submit", handleProfileFormSubmit);
 
 //открытие поп-апа добавления карточек
-popupAddElementOpen.addEventListener('click', () => {
+popupAddElementOpen.addEventListener("click", () => {
   formAddCard.reset();
-  //toggleButtonState(inputListCardForm, submitButtonCardForm, validationConfig.inactiveButtonClass);
+  formAddCardValidator.toggleButtonState();
   openPopup(popupAddElement);
 });
 // закрытие popup
 const closePopup = function (popup) {
-  popup.classList.remove('popup_open');
-  document.removeEventListener('keydown', closePopupEsc);
-}
+  popup.classList.remove("popup_open");
+  document.removeEventListener("keydown", closePopupEsc);
+};
 //закрытие поп-апа по esc
 function closePopupEsc(evt) {
-  if (evt.key === 'Escape') {
-    const popupOpen = document.querySelector('.popup_open');
+  if (evt.key === "Escape") {
+    const popupOpen = document.querySelector(".popup_open");
     closePopup(popupOpen);
   }
 }
 //закрытие по оверлей
 function closePopupOnClickOverlay(e) {
   if (e.target === e.currentTarget) {
-    closePopup(e.target)
+    closePopup(e.target);
   }
-};
+}
 popupEditProfile.addEventListener("click", closePopupOnClickOverlay);
 popupAddElement.addEventListener("click", closePopupOnClickOverlay);
 popupImageElement.addEventListener("click", closePopupOnClickOverlay);
 
-
 // находим все крестики проекта по универсальному селектору
 closeButtons.forEach((button) => {
-  const popup = button.closest('.popup');// находим 1 раз ближайший к крестику попап
-  button.addEventListener('click', () => { // устанавливаем обработчик закрытия на крестик
+  const popup = button.closest(".popup"); // находим 1 раз ближайший к крестику попап
+  button.addEventListener("click", () => {
+    // устанавливаем обработчик закрытия на крестик
     closePopup(popup);
   });
 });
 
-function openImagePopup(data) { //открытие поп-апа картинки
+function openImagePopup(data) {
+  //открытие поп-апа картинки
   popupImage.src = data.link;
   popupImage.alt = data.name;
-  document.querySelector('.popup__description').textContent = data.name;
+  popupDescription.textContent = data.name;
   openPopup(popupImageElement);
 }
 
 function createNewCard(element) {
-  const cards = new Card(element, templateSelector, openImagePopup);
-  const cardElement = cards.createCard();
-  return cardElement
+  const card = new Card(element, templateSelector, openImagePopup);
+  const cardElement = card.createCard();
+  return cardElement;
 }
 
 //фукнция, которая добавит карточки в контейнер
@@ -124,11 +125,11 @@ function handleFormCardSubmit(evt) {
   event.target.reset(); //обнуление значений формы
   closePopup(popupAddElement);
 }
-formAddCard.addEventListener('submit', handleFormCardSubmit);
-
+formAddCard.addEventListener("submit", handleFormCardSubmit);
 
 const formEditProfileValidator = new FormValidator(validationConfig, formEditProfile);
 formEditProfileValidator.enableValidation();
 
 const formAddCardValidator = new FormValidator(validationConfig, formAddCard);
 formAddCardValidator.enableValidation();
+
