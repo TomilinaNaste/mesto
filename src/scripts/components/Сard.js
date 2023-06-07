@@ -2,7 +2,7 @@ export default class Card {
   constructor(data, templateSelector, openImagePopup) {
     this._data = data;
     this._link = data.link;
-    this._name = data.name;
+    this._name = data.named;
     this._templateSelector = templateSelector;
     this._openImagePopup = openImagePopup;
   }
@@ -23,6 +23,7 @@ export default class Card {
 
   _forOpenImagePopup = () => {
     this._openImagePopup(this._data);
+
   };
 
   _addEventListeners() {
@@ -50,3 +51,5 @@ export default class Card {
     return this._templateElementItem;
   }
 }
+
+
