@@ -5,18 +5,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
-  <link rel="stylesheet" href="./pages/index.css">
 </head>
 
 <body class="page">
   <header class="header page__section">
-    <img src="./images/logo.svg" alt="Логотип Место" class="header__logo">
+    <img src="<%=require('./images/logo.svg')%>" alt="Логотип Место" class="header__logo">
   </header>
 
   <main class="content">
     <section class="profile page__section">
       <div class="profile__container">
-        <img src="./images/Avatar.png" alt="фото Жак-Ив Кусто" class="profile__avatar">
+        <img src="<%=require('./images/Avatar.png')%>" alt="фото Жак-Ив Кусто" class="profile__avatar">
         <div class="profile__info">
           <h1 class="profile__title">Жак-Ив&nbsp;Кусто</h1>
           <p class="profile__subtitle">Исследователь океана</p>
@@ -62,9 +61,9 @@
             <span class="form__span  form__span-named"></span>
           </label>
           <label class="form__label">
-            <input name="url" type="url" placeholder="Ссылка на картинку" class="form__item form__item_type_url" id="url-input"
+            <input name="link" type="url" placeholder="Ссылка на картинку" class="form__item form__item_type_url" id="link-input"
             required>
-            <span class="form__span  form__span-url"></span>
+            <span class="form__span  form__span-link"></span>
           </label>
           <button type="submit" class="button form__save-button">Создать</button>
         </form>
@@ -99,6 +98,5 @@
   <footer class="footer">
     <p class="footer__copyright">© 2023 Mesto</p>
   </footer>
-  <script type="module" defer src="./index.js"></script>
 </body>
 </html>
