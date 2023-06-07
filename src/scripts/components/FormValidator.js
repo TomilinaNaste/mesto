@@ -70,4 +70,15 @@ export default class FormValidator {
     this._submitButton = this._form.querySelector(this._submitButtonSelector); //берем кнопку сабмит
     this._setEventListener();
   }
+
+  //функция сброса кнопки сабмита при открытии попапа
+  resetFormError() {
+    this._inputList.forEach((input) => {
+      const errorElement = this._form.querySelector(
+        `${this._errorSelector}${input.name}`
+      );
+      this._hideInputError(input, errorElement);
+    });
+    this.toggleButtonState();
+  }
 }
