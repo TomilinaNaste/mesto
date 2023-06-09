@@ -1,10 +1,12 @@
 export default class Card {
-  constructor(data, templateSelector, openImagePopup) {
+  constructor(data, templateSelector, openImagePopup, openRemoveCardPopup) {
     this._data = data;
     this._link = data.link;
     this._name = data.named;
     this._templateSelector = templateSelector;
     this._openImagePopup = openImagePopup;
+    this._openRemoveCardPopup = openRemoveCardPopup;
+
   }
   _getClone() {
     return document
@@ -17,8 +19,8 @@ export default class Card {
     evt.target.classList.toggle("element__button_active");
   }
 
-  _evtForRemoveButton(evt) {
-    evt.target.closest(".elements__item").remove();
+  _evtForRemoveButton = () => {
+    this._openRemoveCardPopup(this);
   }
 
   _forOpenImagePopup = () => {
@@ -30,6 +32,11 @@ export default class Card {
     this._likeButton.addEventListener("click", this._evtForLike);
     this._removeButton.addEventListener("click", this._evtForRemoveButton);
     this._imageElement.addEventListener("click", this._forOpenImagePopup);
+  }
+
+  removeCard() {
+    this._templateElementItem.remove();
+    this._templateElementItem = null;
   }
 
   createCard() {
