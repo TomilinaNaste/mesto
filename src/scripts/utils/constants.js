@@ -1,30 +1,4 @@
-//массив с карточками
-  const initialCards = [
-  {
-    named: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    named: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    named: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    named: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    named: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    named: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
+
 const templateSelector = "#element-template";
 const popupEditProfileSelector = ".popup-profileEdit";
 const popupImageElementSelector = ".popup-image";
@@ -37,7 +11,7 @@ const popupProfileOpenButton = document.querySelector(".profile__edit-button"); 
 const popupAddElementOpen = document.querySelector(".profile__add-button"); //кнопка карточек
 const popupProfileAvatarOpen = document.querySelector(".profile__avatar-edit")//кнопка аватара
 
-// // //объект валидации
+//объект валидации
 const validationConfig = {
   formSelector: ".form",
   inputSelector: ".form__item",
@@ -47,14 +21,14 @@ const validationConfig = {
   inputErrorClass: "form__item_type_error",
   errorClass: "form__span_visible",
 };
-
+//for UsetInfo
 const configInfo = {
   profileTitleSelector: ".profile__title",
   profileSubtitleSelector: ".profile__subtitle",
+  profileAvatar: ".profile__avatar"
 };
 
   export {
-  initialCards,
   templateSelector,
   popupEditProfileSelector,
   popupImageElementSelector,
